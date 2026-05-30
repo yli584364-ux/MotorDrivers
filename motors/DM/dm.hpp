@@ -219,6 +219,9 @@ public:
         // 这样既能维持通信，又不会误使能电机。
         if (!enabled_)
             disable();
+        // 如果电机实际未使能，持续发送使能帧
+        if (enabled_ && feedback_.state == State::Disabled)
+            enable();
     }
 
     /**
