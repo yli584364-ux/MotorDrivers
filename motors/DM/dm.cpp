@@ -127,6 +127,8 @@ DMMotor::DMMotor(const Config& cfg) : cfg_(cfg), sign_(cfg_.reverse ? -1.0f : 1.
 
     pos_max_deg = RAD2DEG(cfg_.pos_max_rad);
 
+    angle_zero_ = cfg_.default_angle_zero;
+
     if (!register_motor(cfg_.hcan, cfg_.id0, this))
         Error_Handler();
 }

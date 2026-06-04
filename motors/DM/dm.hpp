@@ -90,7 +90,9 @@ public:
         float              vel_max_rad; ///< 驱动器配置的速度最大值，单位 rad/s
         float              tor_max;     ///< 驱动器配置的力矩最大值，单位 Nm
 
-        bool  auto_zero      = true;  ///< 上电收够一段稳定反馈后，是否自动把当前角度设为零点
+        float default_angle_zero = 0; ///< 默认电机零点，理解为零点时电机编码器返回的角度
+
+        bool  auto_zero      = false;  ///< 上电收够一段稳定反馈后，是否自动把当前角度设为零点
         bool  reverse        = false; ///< 是否反转输出方向
         float reduction_rate = 1.0f;  ///< 外接减速比
     };
